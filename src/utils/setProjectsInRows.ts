@@ -1,6 +1,5 @@
 import dayjs, { OpUnitType } from "dayjs";
-import { SchedulerProjectData } from "@/types/global";
-import type { ZoomLevel } from "@/types/global";
+import { SchedulerProjectData, ZoomLevel } from "@/types/global";
 
 const ZOOM_LEVEL_TO_COMPARISON_UNIT: Partial<Record<ZoomLevel, OpUnitType>> = {
   0: "day",
