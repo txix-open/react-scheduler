@@ -50,7 +50,7 @@ import "@bitnoi.se/react-scheduler/dist/style.css";
 import { Scheduler, SchedulerData } from "@bitnoi.se/react-scheduler";
 import dayjs from "dayjs";
 
-default export function Component() {
+export default function Component() {
   const [filterButtonState, setFilterButtonState] = useState(0);
 
   const [range, setRange] = useState({
@@ -164,6 +164,7 @@ const mockedSchedulerData: SchedulerData = [
 
 | Property Name     | Type       | Arguments                         | Description                                                                                                                       |
 | ----------------- | ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| startDate         | `string`   | -                                 | defines the date the calendar view centers on (current date by default)
 | isLoading         | `boolean`  | -                                 | shows loading indicators on scheduler                                                                                             |
 | onRangeChange     | `function` | updated `startDate` and `endDate` | runs whenever user reaches end of currently rendered canvas                                                                       |
 | onTileClick       | `function` | clicked resource data             | detects resource click                                                                                                            |
