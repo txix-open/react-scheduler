@@ -19,7 +19,7 @@ export const parseDay = (data: dayjs.Dayjs): Day => {
     hour: data.hour(),
     dayName: data.format("ddd"),
     dayOfMonth: data.date(),
-    weekOfYear: data.isoWeek(),
+    weekOfYear: data.week(),
     month: data.month(),
     monthName: data.format("MMMM"),
     isBusinessDay: getIsBusinessDay(data),

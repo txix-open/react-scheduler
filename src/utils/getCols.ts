@@ -10,6 +10,7 @@ import {
 export const getCols = (zoom: number) => {
   const wrapperWidth = document.getElementById(outsideWrapperId)?.clientWidth || 0;
   const componentWidth = wrapperWidth - leftColumnWidth;
+  let ceiledValue = 0;
 
   switch (zoom) {
     case 1:
@@ -17,7 +18,8 @@ export const getCols = (zoom: number) => {
     case 2:
       return Math.ceil(componentWidth / zoom2ColumnWidth) * screenWidthMultiplier;
     default:
-      return Math.ceil(componentWidth / weekWidth) * screenWidthMultiplier;
+      ceiledValue = Math.ceil((componentWidth / weekWidth) * screenWidthMultiplier);
+      return ceiledValue % 2 === 0 ? ceiledValue : ceiledValue + 1;
   }
 };
 

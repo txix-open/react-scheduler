@@ -5,8 +5,7 @@ import {
   fonts,
   headerMonthHeight,
   headerWeekHeight,
-  middleRowTextYPos,
-  weeksInYear
+  middleRowTextYPos
 } from "@/constants";
 import { drawRow } from "@/utils/drawRow";
 import { Theme } from "@/styles";
@@ -25,7 +24,9 @@ export const drawWeeksInMiddle = (
   let xPos = 0;
 
   for (let i = 0; i < weeksThreshold; i++) {
-    const day = dayjs(`${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}`).day();
+    const formatedDate = `${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}`;
+    const day = dayjs(formatedDate).day();
+    const weeksInYear = dayjs(formatedDate).isoWeeksInYear();
     let weekIndex = (startWeek + i) % weeksInYear;
 
     if (weekIndex <= 0) {
