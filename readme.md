@@ -17,18 +17,6 @@
 <hr />
 
 <div>
-  <p>
-    We're thrilled that our component has caught your interest! We'd love to see how you're using it in your projects.
-  </p>
-  <p>
-    Share descriptions and screenshots of your projects that feature Scheduler, and you could be one of 5 lucky winners to receive our limited edition hoodies!
-  </p>
-  <p>
-    This promotion runs until September 25, 2024. For more information, click here: <a href="https://github.com/Bitnoise/react-scheduler/discussions/149">Scheduler in your projects 🎉</a>
-  </p>
-  <p>
-    <b>Can't wait to see your amazing work! Good luck!</b>
-  </p>
   <h3 align="center">NEWSLETTER</h3>
   <p>
     If you want to stay updated with Scheduler updates and news from the technical world, sign up for our newsletter. We don't  spam (we send emails once a month), we don't run a sales newsletter, and we respect your time.
@@ -62,7 +50,7 @@ import "@bitnoi.se/react-scheduler/dist/style.css";
 import { Scheduler, SchedulerData } from "@bitnoi.se/react-scheduler";
 import dayjs from "dayjs";
 
-default export function Component() {
+export default function Component() {
   const [filterButtonState, setFilterButtonState] = useState(0);
 
   const [range, setRange] = useState({
@@ -176,6 +164,7 @@ const mockedSchedulerData: SchedulerData = [
 
 | Property Name     | Type       | Arguments                         | Description                                                                                                                       |
 | ----------------- | ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| startDate         | `string`   | -                                 | defines the date the calendar view centers on (current date by default)
 | isLoading         | `boolean`  | -                                 | shows loading indicators on scheduler                                                                                             |
 | onRangeChange     | `function` | updated `startDate` and `endDate` | runs whenever user reaches end of currently rendered canvas                                                                       |
 | onTileClick       | `function` | clicked resource data             | detects resource click                                                                                                            |
