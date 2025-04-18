@@ -6,6 +6,8 @@ import isoWeek from "dayjs/plugin/isoWeek";
 import isBetween from "dayjs/plugin/isBetween";
 import duration from "dayjs/plugin/duration";
 import debounce from "lodash.debounce";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { Coords, ZoomLevel, allZoomLevel } from "@/types/global";
 import { isAvailableZoom } from "@/types/guards";
 import { getDatesRange, getParsedDatesRange } from "@/utils/getDatesRange";
@@ -26,6 +28,8 @@ dayjs.extend(dayOfYear);
 dayjs.extend(isoWeek);
 dayjs.extend(isBetween);
 dayjs.extend(duration);
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
 
 type Direction = "back" | "forward" | "middle";
 
