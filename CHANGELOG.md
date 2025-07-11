@@ -1,3 +1,8 @@
+# Release v0.4.0
+- added datepicker to tooltip
+- added ru locale
+- fixed issue with displaying past events incorrectly
+
 # Release v0.2.1
 
 - added example of scheduler data filtering in readme.md
