@@ -25,6 +25,7 @@ import {
 import { getCanvasWidth } from "@/utils/getCanvasWidth";
 import { calendarContext } from "./calendarContext";
 import { CalendarProviderProps } from "./types";
+
 dayjs.extend(weekOfYear);
 dayjs.extend(dayOfYear);
 dayjs.extend(isoWeek);
@@ -205,6 +206,16 @@ const CalendarProvider = ({
     }, 300)();
   }, [isLoading, loadMore, moveHorizontalScroll]);
 
+  const handleGoDate = useCallback(
+    (date: dayjs.Dayjs) => {
+      if (isLoading) return;
+
+      setDate(date);
+      onRangeChange?.(range);
+    },
+    [isLoading, onRangeChange, range]
+  );
+
   const zoomIn = () => changeZoom(zoom + 1);
 
   const zoomOut = () => changeZoom(zoom - 1);
@@ -230,6 +241,7 @@ const CalendarProvider = ({
         handleGoPrev,
         handleScrollPrev,
         handleGoToday,
+        handleGoDate,
         zoomIn,
         zoomOut,
         zoom,

@@ -7,7 +7,7 @@ const resetBtnStyles = `
   outline: none;
   border: none;
   font-size: 100%;
-  line-height: 1.15
+  line-height: 1.15;
   margin: 0
 `;
 
@@ -25,6 +25,34 @@ export const Wrapper = styled.div<TopbarProps>`
   z-index: 3;
 `;
 
+export const TodayWrapper = styled.div`
+  ${resetBtnStyles};
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .react-datepicker-wrapper {
+    margin-top: 3px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 1.5rem;
+    background-color: ${({ theme }) => theme.colors.textPrimary};
+  }
+
+  &::before {
+    left: -1.125rem;
+  }
+
+  &::after {
+    right: -1.125rem;
+  }
+`;
+
 export const NavigationWrapper = styled.div`
   display: flex;
   gap: 1.875rem;
@@ -38,9 +66,17 @@ export const NavBtn = styled.button`
   font-size: 0.875rem;
   font-weight: 400;
   color: ${({ theme }) => theme.colors.textPrimary};
+
   :not(:disabled) {
     cursor: pointer;
   }
+`;
+
+export const NavCalendarButton = styled.button`
+  ${resetBtnStyles};
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 `;
 
 export const Today = styled.button`
@@ -48,23 +84,8 @@ export const Today = styled.button`
   position: relative;
   font-weight: 600;
   cursor: pointer;
-  line-height: 1.5rem;
+  padding-right: 0.625rem;
   color: ${({ theme }) => theme.colors.textPrimary};
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: 1.5rem;
-    background-color: ${({ theme }) => theme.colors.textPrimary};
-  }
-  &::before {
-    left: -1.125rem;
-  }
-  &::after {
-    right: -1.125rem;
-  }
 `;
 
 export const Zoom = styled.div`
@@ -82,6 +103,6 @@ export const Filters = styled.div`
 
 export const OptionsContainer = styled.div`
   display: flex;
-  align-items: "center";
+  align-items: center;
   gap: 1.25rem;
 `;
