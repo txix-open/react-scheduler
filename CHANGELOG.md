@@ -1,3 +1,6 @@
+# Release v0.5.0
+- added render custom subtitle to LeftColumn
+
 # Release v0.4.0
 - added datepicker to tooltip
 - added ru locale
