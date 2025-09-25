@@ -13,7 +13,7 @@ import { LeftColumnItemProps } from "./types";
 const LeftColumnItem: FC<LeftColumnItemProps> = ({ id, item, rows, onItemClick }) => {
   return (
     <StyledWrapper
-      title={item.title + " | " + item.subtitle}
+      title={item.title + " | " + (typeof item.subtitle === "string" ? item.subtitle : "")}
       clickable={typeof onItemClick === "function"}
       rows={rows}
       onClick={() => onItemClick?.({ id, label: item })}>

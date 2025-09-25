@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { LocaleType } from "@/context/LocaleProvider/types";
 import { ColorType } from "@/styles";
 
@@ -81,7 +82,7 @@ export type PaginatedSchedulerRow = {
 export type SchedulerRowLabel = {
   icon: string;
   title: string;
-  subtitle: string;
+  subtitle: ReactNode;
 };
 export type SchedulerProjectData = {
   /**

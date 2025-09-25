@@ -82,7 +82,13 @@ export const createMockData = (
       label: {
         icon: "https://picsum.photos/24",
         title,
-        subtitle: getRandomWords()
+        subtitle: (
+          <div style={{ width: "100%", display: "flex", gap: "4px", margin: "4px" }}>
+            <div style={{ color: "red", fontSize: "12px" }}>Подпись: да</div>
+            <div style={{ color: "red", fontSize: "12px" }}>Дата приема: 12.03.2025</div>
+            <div style={{ color: "red", fontSize: "12px" }}>Дата удаление: 25.10.2025</div>
+          </div>
+        )
       },
       data
     };
