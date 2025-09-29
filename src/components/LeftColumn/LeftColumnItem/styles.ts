@@ -5,7 +5,7 @@ import { StyledLeftColumnItemWrapperProps, StyledTextProps } from "./types";
 export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
   display: flex;
   align-items: ${({ rows }) => (rows > 1 ? "start" : "center")};
-  padding: 0.813rem 0 0.813rem 1rem;
+  padding: 0.813rem 1rem;
   width: 100%;
   min-height: ${boxHeight}px;
   height: calc(${boxHeight}px * ${({ rows }) => rows});
@@ -30,16 +30,20 @@ export const StyledImageWrapper = styled.div`
   overflow: hidden;
   flex-shrink: 0;
 `;
+
 export const StyledImage = styled.img`
   object-fit: cover;
   height: 100%;
   width: 100%;
 `;
+
 export const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
+  min-width: 0;
 `;
+
 export const StyledText = styled.p<StyledTextProps>`
   margin: 0;
   padding: 0;
@@ -47,11 +51,33 @@ export const StyledText = styled.p<StyledTextProps>`
   letter-spacing: ${({ isMain }) => (isMain ? 1 + "px" : 0.5 + "px")};
   line-height: ${({ isMain }) => (isMain ? 1.125 + "rem" : 0.75 + "rem")};
   color: ${({ isMain, theme }) => (isMain ? theme.colors.textPrimary : theme.colors.placeholder)};
-  text-overflow: ellipsis;
-  display: inline-block;
-  max-width: 144px;
+  max-width: 100%;
   width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
   text-align: left;
+
+  /* string */
+  ${(props) =>
+    typeof props.children === "string"
+      ? `
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  `
+      : ""}
+
+  /* React-component */
+  & > * {
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* inside flex-container */
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    align-items: center;
+  }
 `;
