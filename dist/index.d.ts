@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 declare const allZoomLevel: readonly [0, 1, 2];
 
 declare type ColorType = "background" | "gridBackground" | "primary" | "secondary" | "tertiary" | "textPrimary" | "textSecondary" | "accent" | "disabled" | "border" | "placeholder" | "warning" | "button" | "tooltip" | "defaultTile" | "hover";
@@ -89,7 +91,7 @@ export declare type SchedulerProjectData = {
     /**
      * Subtitle of item. Optional
      */
-    subtitle?: string;
+    subtitle?: ReactNode;
     /**
      * Short description displayed on tile. Optional
      */
@@ -121,7 +123,7 @@ declare type SchedulerRow = {
 declare type SchedulerRowLabel = {
     icon: string;
     title: string;
-    subtitle: string;
+    subtitle: ReactNode;
 };
 
 declare type Theme = {

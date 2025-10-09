@@ -1621,7 +1621,7 @@ U.div`
   width: 40vw;
   height: 40vh;
 `;
-const Ge = 50, Ct = 24, xn = 16, jt = 40, mn = jt + xn + Ct, At = 84, Xe = 56, tt = 196, wt = 12, je = 50, vn = 24, Hn = 16, ha = 40, sl = vn + Hn + ha, No = 1, it = {
+const Ge = 50, Ct = 24, xn = 16, jt = 40, mn = jt + xn + Ct, At = 84, Xe = 80, tt = 250, wt = 12, je = 50, vn = 24, Hn = 16, ha = 40, sl = vn + Hn + ha, No = 1, it = {
   topRow: "600 14px Inter",
   middleRow: "400 10px Inter",
   bottomRow: {
@@ -13302,7 +13302,7 @@ const mv = {
 `, xg = U.div`
   display: flex;
   align-items: ${({ rows: n }) => n > 1 ? "start" : "center"};
-  padding: 0.813rem 0 0.813rem 1rem;
+  padding: 0.813rem 1rem;
   width: 100%;
   min-height: ${Xe}px;
   height: calc(${Xe}px * ${({ rows: n }) => n});
@@ -13330,6 +13330,7 @@ const mv = {
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
+  min-width: 0;
 `, Yi = U.p`
   margin: 0;
   padding: 0;
@@ -13337,17 +13338,36 @@ const mv = {
   letter-spacing: ${({ isMain: n }) => n ? 1 + "px" : 0.5 + "px"};
   line-height: ${({ isMain: n }) => n ? 1.125 + "rem" : 0.75 + "rem"};
   color: ${({ isMain: n, theme: r }) => n ? r.colors.textPrimary : r.colors.placeholder};
-  text-overflow: ellipsis;
-  display: inline-block;
-  max-width: 144px;
+  max-width: 100%;
   width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
   text-align: left;
+
+  /* string */
+  ${(n) => typeof n.children == "string" ? `
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  ` : ""}
+
+  /* React-component */
+  & > * {
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* inside flex-container */
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    align-items: center;
+  }
 `, Eg = ({ id: n, item: r, rows: t, onItemClick: e }) => /* @__PURE__ */ F(
   xg,
   {
-    title: r.title + " | " + r.subtitle,
+    title: r.title + " | " + (typeof r.subtitle == "string" ? r.subtitle : ""),
     clickable: typeof e == "function",
     rows: t,
     onClick: () => e == null ? void 0 : e({ id: n, label: r }),
