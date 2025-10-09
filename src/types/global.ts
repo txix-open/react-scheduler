@@ -108,7 +108,7 @@ export type SchedulerProjectData = {
   /**
    * Subtitle of item. Optional
    */
-  subtitle?: string;
+  subtitle?: ReactNode;
   /**
    * Short description displayed on tile. Optional
    */
