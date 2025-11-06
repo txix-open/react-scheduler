@@ -18,6 +18,7 @@ export const StyledWrapper = styled.div<StyledLeftColumnItemWrapperProps>`
 `;
 
 export const StyledInnerWrapper = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
 `;
