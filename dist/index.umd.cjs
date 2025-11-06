@@ -371,6 +371,7 @@ white-space: nowrap;
     background-color: ${({theme:n})=>n.colors.hover};
   }
 `,Cv=U.div`
+  width: 100%;
   display: flex;
   align-items: center;
 `,Pv=U.div`

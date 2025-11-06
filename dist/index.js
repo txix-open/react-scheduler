@@ -13313,6 +13313,7 @@ const mv = {
     background-color: ${({ theme: n }) => n.colors.hover};
   }
 `, Mg = U.div`
+  width: 100%;
   display: flex;
   align-items: center;
 `, Sg = U.div`

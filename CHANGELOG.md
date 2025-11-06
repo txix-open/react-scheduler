@@ -1,3 +1,7 @@
+# Release v0.5.2
+
+enforce text truncation in LeftColumnItem
+
 # Release v0.5.1
 
 - fix subtitle type
