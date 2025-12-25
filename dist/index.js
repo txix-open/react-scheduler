@@ -13775,8 +13775,8 @@ to{
     const c = a.diff(r.startDate, "minute"), l = o.diff(a, "minute");
     i = (c / ze + 1) * e - e / 2, s = l / ze * e;
   } else {
-    const c = a.diff(r.startDate, "day"), l = o.startOf("day").diff(a.startOf("day"), "day"), u = o.diff(o.clone().startOf("day"), "minute") > 0, d = l + (u ? 1 : 0);
-    i = c * e, s = d * e;
+    const c = a.startOf("day"), l = r.startDate.startOf("day"), u = c.diff(l, "day"), d = o.startOf("day").diff(a.startOf("day"), "day") + 1;
+    i = u * e, s = d * e;
   }
   return {
     x: Math.max(0, i),
@@ -13791,7 +13791,7 @@ to{
       break;
     }
     default: {
-      l = z(e).hour(0).minute(0), u = z(a).hour(23).minute(59), d = r, f = t;
+      l = z(e).startOf("day"), u = z(a).endOf("day"), d = r.startOf("day"), f = t.endOf("day");
       break;
     }
   }

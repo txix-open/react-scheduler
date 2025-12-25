@@ -1,3 +1,5 @@
+# Release v0.5.3
+fix visual inconsistency where tiles with the same end date appeared with different widths due to time offsets in data.
 # Release v0.5.2
 
 enforce text truncation in LeftColumnItem
