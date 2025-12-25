@@ -28,10 +28,10 @@ export const getTileProperties = (
       break;
     }
     default: {
-      parsedResourceStartDate = dayjs(resourceStartDate).hour(0).minute(0);
-      parsedResourceEndDate = dayjs(resourceEndDate).hour(23).minute(59);
-      parsedStartDate = startDate;
-      parsedEndDate = endDate;
+      parsedResourceStartDate = dayjs(resourceStartDate).startOf("day");
+      parsedResourceEndDate = dayjs(resourceEndDate).endOf("day");
+      parsedStartDate = startDate.startOf("day");
+      parsedEndDate = endDate.endOf("day");
       break;
     }
   }

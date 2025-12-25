@@ -1,11 +1,10 @@
-import { dayWidth, minutesInHour, singleDayWidth, zoom2ColumnWidth } from "@/constants";
+import { dayWidth, minutesInHour, singleDayWidth, zoom2ColumnWidth, hoursInDay } from "@/constants";
 import { DatesRange } from "./getDatesRange";
 
 export const getTileXAndWidth = (item: DatesRange, range: DatesRange, zoom: number) => {
   const cellWidth = zoom === 0 ? singleDayWidth : zoom === 2 ? zoom2ColumnWidth : dayWidth;
 
   const visibleStart = item.startDate.isBefore(range.startDate) ? range.startDate : item.startDate;
-
   const visibleEnd = item.endDate.isAfter(range.endDate) ? range.endDate : item.endDate;
 
   if (visibleStart.isSameOrAfter(visibleEnd)) {
@@ -22,11 +21,11 @@ export const getTileXAndWidth = (item: DatesRange, range: DatesRange, zoom: numb
     x = (minutesFromStart / minutesInHour + 1) * cellWidth - cellWidth / 2;
     width = (durationMinutes / minutesInHour) * cellWidth;
   } else {
-    const dayDiff = visibleStart.diff(range.startDate, "day");
+    const s1 = visibleStart.startOf("day");
+    const s2 = range.startDate.startOf("day");
+    const dayDiff = s1.diff(s2, "day");
 
-    const fullDays = visibleEnd.startOf("day").diff(visibleStart.startOf("day"), "day");
-    const endsLaterInDay = visibleEnd.diff(visibleEnd.clone().startOf("day"), "minute") > 0;
-    const totalDays = fullDays + (endsLaterInDay ? 1 : 0);
+    const totalDays = visibleEnd.startOf("day").diff(visibleStart.startOf("day"), "day") + 1;
 
     x = dayDiff * cellWidth;
     width = totalDays * cellWidth;
